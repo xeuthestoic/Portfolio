@@ -169,6 +169,22 @@
     background-size: 22px 22px;
   }
   .project .thumb .glyph { z-index:1; text-shadow:0 0 22px var(--red-glow); }
+  .project .status {
+    position:absolute; top:14px; right:14px; z-index:2;
+    font-family: var(--display); font-size:.68rem; letter-spacing:1.2px; text-transform:uppercase;
+    padding: 5px 12px; border-radius: 999px; display:inline-flex; align-items:center; gap:7px;
+    backdrop-filter: blur(6px);
+  }
+  .project .status::before { content:""; width:7px; height:7px; border-radius:50%; }
+  .status.ongoing {
+    color:#ffd0a8; background: rgba(255,140,40,.14); border:1px solid rgba(255,140,40,.45);
+  }
+  .status.ongoing::before { background:#ff9d3d; box-shadow:0 0 8px #ff9d3d; animation: pulse 1.6s infinite; }
+  .status.done {
+    color:#9dffc4; background: rgba(40,220,120,.12); border:1px solid rgba(40,220,120,.40);
+  }
+  .status.done::before { background:#33e08a; box-shadow:0 0 8px #33e08a; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
   .project .body { padding: 24px 26px 28px; }
   .project .kind { font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color: var(--red-soft); }
   .project h3 { font-family: var(--display); font-size:1.3rem; margin:10px 0 12px; }
@@ -293,39 +309,21 @@
       <h2 class="section-title reveal">Mes réalisations</h2>
       <div class="grid-2">
         <div class="project reveal">
-          <div class="thumb"><span class="glyph">HUD</span></div>
+          <div class="thumb"><span class="status done">Terminé</span><span class="glyph">🎙️</span></div>
           <div class="body">
-            <div class="kind">Interface / UI</div>
-            <h3>Player Status HUD</h3>
-            <p>Interface joueur complète avec barres XP, énergie, niveau et pseudo. Design sombre et néon rouge, animations fluides et entièrement réactive aux données.</p>
-            <div class="stack"><span>UI Design</span><span>Luau</span><span>Tween</span></div>
+            <div class="kind">Scripting · Main Dev</div>
+            <h3>Voicechat FR</h3>
+            <p>Jeu hangout francophone dont je suis le <b style="color:var(--text)">main developer</b> : j'ai réalisé toute la partie scripting. Systèmes de gameplay, logique serveur/client et fonctionnalités sociales du hangout.</p>
+            <div class="stack"><span>Luau</span><span>Main Dev</span><span>Server/Client</span><span>Hangout</span></div>
           </div>
         </div>
         <div class="project reveal">
-          <div class="thumb"><span class="glyph">{ }</span></div>
+          <div class="thumb"><span class="status ongoing">En cours</span><span class="glyph">✦</span></div>
           <div class="body">
-            <div class="kind">Scripting</div>
-            <h3>Système de données</h3>
-            <p>Sauvegarde joueur robuste via DataStore : gestion des sessions, retry automatique, et structure modulaire pour stats, monnaie et inventaire.</p>
-            <div class="stack"><span>Luau</span><span>DataStore</span><span>Server</span></div>
-          </div>
-        </div>
-        <div class="project reveal">
-          <div class="thumb"><span class="glyph">🛒</span></div>
-          <div class="body">
-            <div class="kind">Interface / UI</div>
-            <h3>Shop & Upgrades UI</h3>
-            <p>Boutique in-game animée connectée à la logique d'achat : aperçu d'items, confirmation, et mise à jour temps réel de la monnaie du joueur.</p>
-            <div class="stack"><span>UI Design</span><span>RemoteEvents</span><span>Luau</span></div>
-          </div>
-        </div>
-        <div class="project reveal">
-          <div class="thumb"><span class="glyph">⚔️</span></div>
-          <div class="body">
-            <div class="kind">Scripting</div>
-            <h3>Système de combat</h3>
-            <p>Mécanique de combat côté client/serveur : détection des hits, cooldowns, validation anti-exploit et feedback visuel synchronisé avec l'UI.</p>
-            <div class="stack"><span>Luau</span><span>Client/Server</span><span>Anti-exploit</span></div>
+            <div class="kind">Scripting · UI</div>
+            <h3>Project: Starfall</h3>
+            <p>Projet en cours de développement. Conception de l'interface et du scripting des systèmes de jeu — plus d'infos bientôt.</p>
+            <div class="stack"><span>Luau</span><span>UI Design</span><span>WIP</span></div>
           </div>
         </div>
       </div>
@@ -389,4 +387,3 @@
 </script>
 </body>
 </html>
-
